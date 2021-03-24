@@ -41,7 +41,7 @@ int main()
     ListNode *two_Ptr = new ListNode(2,three_Ptr);
     ListNode *head = new ListNode(1,two_Ptr);
 
-    /*
+/*
     for (int i = length; i > 0 ; i--){
         if (i == length){
             ListNode *last = new ListNode(i);
@@ -49,7 +49,7 @@ int main()
         }
         ListNode *
     }
-     */
+*/
 
     ListNode* phead1 = head;
     while(phead1!=NULL)

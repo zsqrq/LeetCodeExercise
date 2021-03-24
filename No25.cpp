@@ -24,6 +24,7 @@ class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
         if(!head || k <= 1) return head; //空指针及不需要翻转的情况直接返回head
+        ListNode* dummyhead = head;
         ListNode* pre = nullptr; //记录前一个ListNode
         ListNode* cur = head; //记录当前ListNode
         ListNode* next = nullptr; //记录后一个ListNode
@@ -38,7 +39,8 @@ public:
             pre = cur; //pre右移
             cur = next; //cur右移
         }
-        head->next = reverseKGroup(next, k); //此时k个ListNode翻转完毕，尾（原来的头）指向递归后返回的头
+        dummyhead->next = reverseKGroup(next, k); //此时k个ListNode翻转完毕，尾（原来的头）指向递归后返回的头
+        //head = pre;
         return pre; //返回新的头
     };
     ListNode* CreatNode(int n){
@@ -71,8 +73,8 @@ public:
 int main()
 {
     Solution s;
-    ListNode* head = s.CreatNode(10);
+    ListNode* head = s.CreatNode(12);
     cout << "hello" << endl;
-    ListNode* phead=s.reverseKGroup(head,2);
+    ListNode* phead=s.reverseKGroup(head,3);
     s.PrintNode(phead);
 }
